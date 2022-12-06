@@ -15,6 +15,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
 
+    public $timestamps = false;
+    protected $fillable = [
+        "firstname", "lastname", "gender", 
+        "country", "province", "city",
+         "lang_app", "is_admin", "account_status",
+          "email",  "password", "email_verified_at"
+    ];
+
+    protected $hidden = [
+        'password'
+    ];
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
